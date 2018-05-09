@@ -1,0 +1,21 @@
+group 'wordsearchkata'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+test {
+    testLogging.showStandardStreams = true
+    testLogging.events = ["started", "skipped", "passed", "failed"]
+    testLogging.exceptionFormat = "full"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    test group: 'junit', name: 'junit', version: '4.11'
+}
