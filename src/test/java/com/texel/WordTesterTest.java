@@ -12,28 +12,31 @@ import static junit.framework.TestCase.assertTrue;
 /**
  * Created by jacob on 5/9/2018.
  */
-public class HorizontalTesterTest {
+public class WordTesterTest {
     WordSearchData testData;
-    HorizontalTester subject;
+    WordTester subject;
 
     @Before public void initialize() throws FileNotFoundException, URISyntaxException {
         WordSearchFileParser parser = new WordSearchFileParser();
         testData = parser.parseFile(new File(this.getClass().getResource("/helloworldsearch.txt").toURI()));
-        subject = new HorizontalTester();
+        subject = new WordTester();
     }
 
     @Test
-    public void TesterShouldReturnTrueIfWordCanBeFoundAtCoordinates(){
+    public void TesterShouldReturnTrueIfWordCanBeFoundHorizontallyAtCoordinates(){
+        subject.setColumnDirection(1);
         assertTrue(subject.test(testData.getSearchGrid(),"WORLD",4,0));
     }
 
     @Test
     public void TesterShouldReturnFalseIfWordCannotBeHorizontallyFoundAtCoordinates(){
+        subject.setColumnDirection(1);
         assertTrue(!subject.test(testData.getSearchGrid(),"WORLD",3,0));
     }
 
     @Test
-    public void TesterShouldNotGoOutsideSearchGrid(){
+    public void TesterShouldNotGoOutsideSearchGridHorizontally(){
+        subject.setColumnDirection(1);
         assertTrue(!subject.test(testData.getSearchGrid(),"ZZZZZZ",3,4));
     }
 }
