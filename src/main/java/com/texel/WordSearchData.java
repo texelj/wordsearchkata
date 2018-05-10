@@ -7,6 +7,7 @@ import java.util.List;
  */
 public class WordSearchData {
     private List<String> words;
+    private List<List<Character>> searchGrid;
     
     public void setWords(List<String> words) {
         this.words = words;
@@ -14,5 +15,13 @@ public class WordSearchData {
 
     public List<String> getWords() {
         return words;
+    }
+
+    public void setSearchGrid(List<List<Character>> searchGrid) {
+        this.searchGrid = searchGrid;
+    }
+
+    public List<List<Character>> getSearchGrid() {
+        return searchGrid;
     }
 }
