@@ -26,4 +26,9 @@ public class HorizontalTesterTest {
     public void TesterShouldReturnTrueIfWordCanBeFoundAtCoordinates(){
         assertTrue(subject.test(testData.getSearchGrid(),"WORLD",4,0));
     }
+
+    @Test
+    public void TesterShouldReturnFalseIfWordCannotBeHorizontallyFoundAtCoordinates(){
+        assertTrue(!subject.test(testData.getSearchGrid(),"WORLD",3,0));
+    }
 }
