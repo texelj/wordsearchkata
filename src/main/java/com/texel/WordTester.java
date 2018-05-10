@@ -7,13 +7,19 @@ import java.util.List;
  */
 public class WordTester {
     private int columnDirection;
+    private int rowDirection;
 
     public void WordTester(){
         columnDirection = 0;
+        rowDirection = 0;
     }
 
     public void setColumnDirection(int columnDirection){
         this.columnDirection = columnDirection;
+    }
+
+    public void setRowDirection(int rowDirection) {
+        this.rowDirection = rowDirection;
     }
 
     public boolean test(List<List<Character>> searchGrid, String word, int row, int column) {
@@ -23,7 +29,10 @@ public class WordTester {
             if(word.charAt(charIndex)!=searchGrid.get(row).get(column))
                 return false;
             column+=columnDirection;
+            row+=rowDirection;
         }
         return true;
     }
+
+
 }
