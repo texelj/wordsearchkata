@@ -22,7 +22,7 @@ public class WordSearchFileParserTest {
     WordSearchFileParser subject;
 
     @Before
-    public void initialize() throws URISyntaxException, MalformedURLException {
+    public void initialize() throws URISyntaxException {
         testFile = new File(this.getClass().getResource("/helloworldsearch.txt").toURI());
         subject = new WordSearchFileParser();
     }
