@@ -24,36 +24,31 @@ public class WordTesterTest {
 
     @Test
     public void TesterShouldReturnTrueIfWordCanBeFoundHorizontallyAtCoordinates(){
-        subject.setColumnDirection(1);
-        subject.setRowDirection(0);
+        subject.setDirection(WordDirection.HORIZONTAL);
         assertTrue(subject.test(testData.getSearchGrid(),"WORLD",4,0));
     }
 
     @Test
     public void TesterShouldReturnFalseIfWordCannotBeHorizontallyFoundAtCoordinates(){
-        subject.setColumnDirection(1);
-        subject.setRowDirection(0);
+        subject.setDirection(WordDirection.HORIZONTAL);
         assertTrue(!subject.test(testData.getSearchGrid(),"WORLD",3,0));
     }
 
     @Test
     public void TesterShouldNotGoOutsideSearchGridHorizontally(){
-        subject.setColumnDirection(1);
-        subject.setRowDirection(0);
+        subject.setDirection(WordDirection.HORIZONTAL);
         assertTrue(!subject.test(testData.getSearchGrid(),"ZZZZZZ",3,4));
     }
 
     @Test
     public void TesterShouldReturnTrueIfWordCanBeFoundVerticallyAtCoordinates(){
-        subject.setRowDirection(1);
-        subject.setColumnDirection(0);
+        subject.setDirection(WordDirection.VERTICAL);
         assertTrue(subject.test(testData.getSearchGrid(),"HELLO",0,1));
     }
 
     @Test
     public void TesterShouldReturnFalseIfWordCannotBeFoundVerticallyAtCoordinates(){
-        subject.setRowDirection(1);
-        subject.setColumnDirection(0);
+        subject.setDirection(WordDirection.VERTICAL);
         assertTrue(!subject.test(testData.getSearchGrid(),"HELLO",1,1));
     }
 }
