@@ -49,4 +49,11 @@ public class WordTesterTest {
         subject.setColumnDirection(0);
         assertTrue(subject.test(testData.getSearchGrid(),"HELLO",0,1));
     }
+
+    @Test
+    public void TesterShouldReturnFalseIfWordCannotBeFoundVerticallyAtCoordinates(){
+        subject.setRowDirection(1);
+        subject.setColumnDirection(0);
+        assertTrue(!subject.test(testData.getSearchGrid(),"HELLO",1,1));
+    }
 }
