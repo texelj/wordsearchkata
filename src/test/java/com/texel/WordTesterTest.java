@@ -24,57 +24,57 @@ public class WordTesterTest {
     }
 
     @Test
-    public void TesterShouldReturnTrueIfWordCanBeFoundHorizontallyAtCoordinates(){
+    public void TesterReturnsTrueWhenWordFoundHorizontally(){
         subject.setDirection(WordDirection.HORIZONTAL);
         assertTrue(subject.test(testData.getSearchGrid(),"WORLD",4,0));
     }
 
     @Test
-    public void TesterShouldReturnFalseIfWordCannotBeHorizontallyFoundAtCoordinates(){
+    public void TesterReturnsFalseWhenWordCannotBeHorizontally(){
         subject.setDirection(WordDirection.HORIZONTAL);
-        assertTrue(!subject.test(testData.getSearchGrid(),"WORLD",3,0));
+        assertFalse(subject.test(testData.getSearchGrid(),"WORLD",3,0));
     }
 
     @Test
-    public void TesterShouldNotGoOutsideSearchGridHorizontally(){
+    public void TesterDoesNotThrowExceptionWhenIndexesOutOfBounds(){
         subject.setDirection(WordDirection.HORIZONTAL);
-        assertTrue(!subject.test(testData.getSearchGrid(),"ZZZZZZ",3,4));
+        assertFalse(subject.test(testData.getSearchGrid(),"ZZZZZZ",-1,-1));
     }
 
     @Test
-    public void TesterShouldReturnTrueIfWordCanBeFoundVerticallyAtCoordinates(){
+    public void TesterReturnsTrueWhenWordFoundVertically(){
         subject.setDirection(WordDirection.VERTICAL);
         assertTrue(subject.test(testData.getSearchGrid(),"HELLO",0,1));
     }
 
     @Test
-    public void TesterShouldReturnFalseIfWordCannotBeFoundVerticallyAtCoordinates(){
+    public void TesterReturnsFalseWhenWordNotFoundVertically(){
         subject.setDirection(WordDirection.VERTICAL);
-        assertTrue(!subject.test(testData.getSearchGrid(),"HELLO",1,1));
+        assertFalse(subject.test(testData.getSearchGrid(),"HELLO",1,1));
     }
 
     @Test
-    public void TesterShouldReturnTueIfWordCanBeFoundDiagonallyDescending(){
+    public void TesterReturnsTrueWhenWordFoundDiagonallyDescending(){
         subject.setDirection(WordDirection.DIAGONAL_DESC);
         assertTrue(subject.test(testData.getSearchGrid(), "ZEZZD",0,0));
     }
 
     @Test
-    public void TesterShouldReturnFalseIfWordCannotBeFoundDiagonallyDescending(){
+    public void TesterReturnsFalseWhenWordNotFoundDiagonallyDescending(){
         subject.setDirection(WordDirection.DIAGONAL_DESC);
-        assertTrue(!subject.test(testData.getSearchGrid(), "ZEZZD",1,0));
+        assertFalse(subject.test(testData.getSearchGrid(), "ZEZZD",1,0));
     }
 
     @Test
-    public void TesterShouldReturnTrueWhenWordFoundDiagonallyAscending(){
+    public void TesterReturnsTrueWhenWordFoundDiagonallyAscending(){
         subject.setDirection(WordDirection.DIAGONAL_ASC);
         assertTrue(subject.test(testData.getSearchGrid(),"WLZZZ",4,0));
     }
 
     @Test
-    public void TesterShouldReturnFalseWhenWordNotDiagonallyAscending(){
+    public void TesterReturnsFalseWhenWordNotFoundDiagonallyAscending(){
         subject.setDirection(WordDirection.DIAGONAL_ASC);
-        assertTrue(!subject.test(testData.getSearchGrid(),"WLZZZ",3,0));
+        assertFalse(subject.test(testData.getSearchGrid(),"WLZZZ",3,0));
     }
 
     @Test
