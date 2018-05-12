@@ -26,4 +26,9 @@ public class WordFinderTest {
     public void FinderReturnsEmptyStringWhenWordNotFound(){
         assertEquals(subject.findWord("NOTTHERE"),"");
     }
+
+    @Test
+    public void FinderReturnsStringWhenHorizontalWordFound(){
+        assertEquals(subject.findWord("TWO"),"TWO: (1,0),(2,0),(3,0)");
+    }
 }
