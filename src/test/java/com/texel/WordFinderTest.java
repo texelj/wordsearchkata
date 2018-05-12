@@ -56,4 +56,9 @@ public class WordFinderTest {
     public void FinderReturnsStringWhenVerticalBackwardsWordFound(){
         assertEquals(subject.findWord("SIX"),"SIX: (6,2),(6,1),(6,0)");
     }
+
+    @Test
+    public void FinderReturnsStringWhenDiagonalDescendingBackwardWordFound(){
+        assertEquals(subject.findWord("SEVEN"),"SEVEN: (4,2),(3,3),(2,4),(1,5),(0,6)");
+    }
 }
