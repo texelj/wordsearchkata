@@ -51,4 +51,10 @@ public class WordTesterTest {
         subject.setDirection(WordDirection.VERTICAL);
         assertTrue(!subject.test(testData.getSearchGrid(),"HELLO",1,1));
     }
+
+    @Test
+    public void TesterShouldRetrunTueIfWordCanBeFoundDiagonallyDescending(){
+        subject.setDirection(WordDirection.DIAGONAL_DESC);
+        assertTrue(subject.test(testData.getSearchGrid(), "ZEZZD",0,0));
+    }
 }
