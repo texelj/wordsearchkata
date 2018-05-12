@@ -18,8 +18,7 @@ public class WordTesterTest {
     WordTester subject;
 
     @Before public void initialize() throws FileNotFoundException, URISyntaxException {
-        WordSearchFileParser parser = new WordSearchFileParser();
-        testData = parser.parseFile(new File(this.getClass().getResource("/helloworldsearch.txt").toURI()));
+        testData = WordSearchFileParser.parseFile(new File(this.getClass().getResource("/helloworldsearch.txt").toURI()));
         subject = new WordTester();
     }
 

@@ -9,8 +9,7 @@ import java.util.stream.Collectors;
  */
 public class PuzzleSolver {
     public static String solveWordSearch(File wordSearchFile) throws FileNotFoundException {
-        WordSearchFileParser parser = new WordSearchFileParser();
-        WordSearchData data = parser.parseFile(wordSearchFile);
+        WordSearchData data = WordSearchFileParser.parseFile(wordSearchFile);
         WordFinder finder = new WordFinder(data.getSearchGrid());
         return data.getWords().stream().map(finder::findWord).collect(Collectors.joining("\n"));
     }

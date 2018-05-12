@@ -1,7 +1,6 @@
 package com.texel;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.List;
  * Created by jacob on 5/9/2018.
  */
 public class WordSearchFileParser {
-    public WordSearchData parseFile(File parseFile) throws FileNotFoundException {
+    public static WordSearchData parseFile(File parseFile) throws FileNotFoundException {
         WordSearchData data = new WordSearchData();
         FileReader filereader = new FileReader(parseFile);
         BufferedReader reader = new BufferedReader(filereader);

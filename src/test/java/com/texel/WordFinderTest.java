@@ -17,8 +17,7 @@ public class WordFinderTest {
     @Before
     public void initialize() throws FileNotFoundException, URISyntaxException {
         File testFile = new File(this.getClass().getResource("/alldirectionstest.txt").toURI());
-        WordSearchFileParser parser = new WordSearchFileParser();
-        WordSearchData data = parser.parseFile(testFile);
+        WordSearchData data = WordSearchFileParser.parseFile(testFile);
         subject = new WordFinder(data.getSearchGrid());
     }
 
