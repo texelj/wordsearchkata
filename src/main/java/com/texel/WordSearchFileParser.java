@@ -48,7 +48,6 @@ public class WordSearchFileParser {
             }
         }
 
-
         return data;
     }
 }
