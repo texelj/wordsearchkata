@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
 
+import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
 /**
@@ -80,5 +81,11 @@ public class WordTesterTest {
     public void TesterShouldReturnTrueWhenWordFoundHorizontallyBackwards(){
         subject.setDirection(WordDirection.HORIZONTAL_BACK);
         assertTrue(subject.test(testData.getSearchGrid(),"DLROW",4,4));
+    }
+
+    @Test
+    public void TesterShouldReturnFalseWhenWordNotHorizontallyBackwards(){
+        subject.setDirection(WordDirection.HORIZONTAL_BACK);
+        assertFalse(subject.test(testData.getSearchGrid(),"DLROW",4,3));
     }
 }
