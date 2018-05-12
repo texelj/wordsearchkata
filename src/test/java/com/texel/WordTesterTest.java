@@ -75,4 +75,10 @@ public class WordTesterTest {
         subject.setDirection(WordDirection.DIAGONAL_ASC);
         assertTrue(!subject.test(testData.getSearchGrid(),"WLZZZ",3,0));
     }
+
+    @Test
+    public void TesterShouldReturnTrueWhenWordFoundHorizontallyBackwards(){
+        subject.setDirection(WordDirection.HORIZONTAL_BACK);
+        assertTrue(subject.test(testData.getSearchGrid(),"DLROW",4,4));
+    }
 }
