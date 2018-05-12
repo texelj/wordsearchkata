@@ -5,7 +5,7 @@ package com.texel;
  */
 public enum WordDirection {
     HORIZONTAL(0,1), VERTICAL(1,0), DIAGONAL_DESC(1,1), DIAGONAL_ASC(-1,1),
-    HORIZONTAL_BACK(0,-1), VERTICAL_BACK(-1,0), DIAGONAL_DESC_BACK(-1,-1);
+    HORIZONTAL_BACK(0,-1), VERTICAL_BACK(-1,0), DIAGONAL_DESC_BACK(-1,-1), DIAGONAL_ASC_BACK(1,-1);
 
     private final int rowDirection;
     private final int columnDirection;

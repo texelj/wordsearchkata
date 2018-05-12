@@ -112,4 +112,10 @@ public class WordTesterTest {
         subject.setDirection(WordDirection.DIAGONAL_DESC_BACK);
         assertFalse(subject.test(testData.getSearchGrid(),"DZZEZ",4,3));
     }
+
+    @Test
+    public void TesterReturnsTrueWhenWordFoundDiagonallyAscendingBackwards(){
+        subject.setDirection(WordDirection.DIAGONAL_ASC_BACK);
+        assertTrue(subject.test(testData.getSearchGrid(),"ZZZLW",0,4));
+    }
 }
