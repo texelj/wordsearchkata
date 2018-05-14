@@ -7,12 +7,17 @@ import java.util.List;
  */
 public class WordTester {
     private WordDirection direction;
+    private List<List<Character>> searchGrid;
 
+    public WordTester(List<List<Character>> searchGrid){
+        this.searchGrid = searchGrid;
+        this.direction = WordDirection.HORIZONTAL;
+    }
     public void setDirection(WordDirection direction){
         this.direction = direction;
     }
 
-    public boolean test(List<List<Character>> searchGrid, String word, int row, int column) {
+    public boolean test(String word, int row, int column) {
         if(row<0 || row>=searchGrid.size() || column<0 || column>=searchGrid.size() ||
                 row+direction.rowDirection()*(word.length()-1)<0 ||
                 row+direction.rowDirection()*(word.length()-1)>=searchGrid.size() ||

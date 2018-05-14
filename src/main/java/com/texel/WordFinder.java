@@ -13,13 +13,13 @@ public class WordFinder {
 
 
     public String findWord(String word) {
+        WordTester tester = new WordTester(searchGrid);
         for(int row=0; row<searchGrid.size(); row++){
             for(int column=0; column<searchGrid.size();column++) {
                 if (searchGrid.get(row).get(column).equals(word.charAt(0))) {
-                    WordTester tester = new WordTester();
                     for (WordDirection direction : WordDirection.values()) {
                         tester.setDirection(direction);
-                        if (tester.test(searchGrid,word,row,column))
+                        if (tester.test(word,row,column))
                             return AnswerGenerator.generate(direction,word,row,column);
                     }
                 }
