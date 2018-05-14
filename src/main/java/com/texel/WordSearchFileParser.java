@@ -15,21 +15,8 @@ public class WordSearchFileParser {
         BufferedReader reader = new BufferedReader(filereader);
 
         try {
-            String wordLine = reader.readLine();
-            data.setWords(Arrays.asList(wordLine.split(",")));
-
-            List<List<Character>> grid = new ArrayList<>();
-            String gridLine = reader.readLine();
-            while(gridLine!=null){
-                String[] characters = gridLine.split(",");
-                List<Character> lineList = new ArrayList<>(characters.length);
-                for(int i=0; i<characters.length;i++){
-                    lineList.add(characters[i].charAt(0));
-                }
-                grid.add(lineList);
-                gridLine=reader.readLine();
-            }
-            data.setSearchGrid(grid);
+            data.setWords(parseWordsLine(reader));
+            data.setSearchGrid(parseSearchGrid(reader));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -48,5 +35,24 @@ public class WordSearchFileParser {
         }
 
         return data;
+    }
+
+    private static List<String> parseWordsLine(BufferedReader reader) throws IOException {
+        return Arrays.asList(reader.readLine().split(","));
+    }
+
+    private static List<List<Character>> parseSearchGrid(BufferedReader reader) throws IOException {
+        List<List<Character>> grid = new ArrayList<>();
+        String gridLine = reader.readLine();
+        while(gridLine!=null){
+            String[] characters = gridLine.split(",");
+            List<Character> lineList = new ArrayList<>(characters.length);
+            for(int i=0; i<characters.length;i++){
+                lineList.add(characters[i].charAt(0));
+            }
+            grid.add(lineList);
+            gridLine=reader.readLine();
+        }
+        return grid;
     }
 }
